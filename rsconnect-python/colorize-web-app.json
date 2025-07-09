@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "C:\\Projects\\colorize-web-app",
+        "app_url": "https://uncolor.shinyapps.io/uncolor/",
+        "app_id": 15054620,
+        "app_guid": null,
+        "title": "uncolor",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}

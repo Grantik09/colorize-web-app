@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Colorizer</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <input type="checkbox" id="dark-mode-toggle" class="dark-mode-checkbox" />
+      <label for="dark-mode-toggle" class="dark-mode-label">
+        <svg
+          class="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg
+          class="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </label>
+    </div>
+
+    <div class="app-container">
+      <header>
+        <h1>AI Image Colorizer</h1>
+        <p class="subtitle">
+          Transform black & white photos into vibrant colored images
+        </p>
+      </header>
+
+      <main>
+        <div class="upload-section" id="upload-section">
+          <div class="upload-area" id="drop-area">
+            <div class="upload-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+            </div>
+            <h2>Upload Your Image</h2>
+            <p>Drag & drop your image here or</p>
+            <input type="file" id="image-input" accept="image/*" hidden />
+            <button class="btn primary" id="select-image-btn">
+              Select Image
+            </button>
+            <p class="file-info" id="selected-file-name"></p>
+            <div class="supported-formats">
+              <p>Supported formats: JPG, PNG, WEBP</p>
+            </div>
+          </div>
+          <button class="btn primary" id="colorize-btn" disabled>
+            Colorize Image
+          </button>
+          <div id="error-message" class="error-message"></div>
+        </div>
+
+        <div class="processing-section" id="processing-section">
+          <div class="loader-container">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">
+              <h3>Processing Your Image</h3>
+              <p>Our AI is adding colors to your photo...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-section" id="results-section">
+          <h2>Colorization Results</h2>
+
+          <div class="comparison-controls">
+            <button class="btn secondary active" id="side-by-side-btn">
+              Side by Side
+            </button>
+            <button class="btn secondary" id="slider-btn">Slider View</button>
+          </div>
+
+          <div class="image-comparison side-by-side" id="comparison-container">
+            <div class="side-by-side-view" id="side-by-side-view">
+              <div class="image-container">
+                <h3>Original</h3>
+                <img id="original-image" alt="Original black and white image" />
+              </div>
+              <div class="image-container">
+                <h3>Colorized</h3>
+                <img id="colorized-image" alt="AI colorized image" />
+              </div>
+            </div>
+
+            <div class="slider-view" id="slider-view">
+              <div class="slider-container">
+                <img id="slider-original" alt="Original image for comparison" />
+                <div class="slider-resize">
+                  <img
+                    id="slider-colorized"
+                    alt="Colorized image for comparison"
+                  />
+                </div>
+                <div class="slider-handle">
+                  <div class="slider-button"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn primary" id="download-btn">
+              Download Image
+            </button>
+            <button class="btn secondary" id="try-another-btn">
+              Try Another Image
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>© 2025 AI Image Colorizer | Powered by Advanced AI Technology</p>
+      </footer>
+    </div>
+
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
